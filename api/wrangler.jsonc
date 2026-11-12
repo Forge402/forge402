@@ -22,8 +22,9 @@
     // Holder discount: balance in the token's base units (integer string) and the percent off. Needs FORGE_TOKEN.
     "HOLDER_MIN": "1000000000000000000000000",
     "HOLDER_DISCOUNT_PCT": "20",
-    // $FORGE contract address. Empty until the token launches: no discount, no holder playground.
-    "FORGE_TOKEN": "",
+    // $FORGE contract address (Forge Network, symbol FORGE402, 18 decimals, launched 2026-11-13). Turns on the holder
+    // discount and the holder playground.
+    "FORGE_TOKEN": "0x11a6187100bb4ee8abec6e0e3a2c8d1b788ce862",
     // Priors facilitator fee per settled x402 payment (USDG). Added to every x402 charge; deducted from deposits.
     "SETTLE_FEE_USD": "0.015",
     // Refunds under this are not paid out one by one: they stay owed and add up per wallet until they reach it.

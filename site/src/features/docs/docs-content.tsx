@@ -114,7 +114,7 @@ POST ${ORIGIN}/v1/wallet/keys/:id/close   Authorization: Bearer <token>`}</Code>
   },
   {
     id: 'discount', title: 'Holder discount',
-    body: <p>When the $FORGE token is live, wallets holding at least the minimum amount get a percentage off every call. The router reads your balance on chain and caches it for 10 minutes. The current value is returned in <Ic>X-Forge-Discount-Pct</Ic> and in your wallet view. Until the token launches the discount is 0%.</p>,
+    body: <p>Wallets holding at least 1,000,000 $FORGE get 20% off every call, never below the Cloudflare cost of the call. The router reads your balance on chain and caches it for 10 minutes. The current value is returned in <Ic>X-Forge-Discount-Pct</Ic> and in your wallet view.</p>,
   },
   {
     id: 'scan', title: 'Forge Scan',
