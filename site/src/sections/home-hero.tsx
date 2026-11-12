@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router'
 import { EmberField } from '@/components/ember-field'
 import { Ticker } from '@/components/ticker'
+import { HeroCa } from '@/components/forge-ca'
 import ForgeHero3D from '@/components/forge-hero-3d'
 import { cheapestIn, models, providerCount } from '@/data/models'
 
@@ -49,6 +50,7 @@ export function HomeHero() {
               <Link to="/docs" className="btn btn-primary">Start building →</Link>
               <a href="#strike" className="btn btn-ghost">Under the hood</a>
             </div>
+            <HeroCa />
           </div>
         </div>
       </div>
