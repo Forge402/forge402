@@ -30,7 +30,16 @@ export const XIcon = () => (
   </svg>
 )
 
-const linkCls = ({ isActive }: { isActive: boolean }) =>
+export const GITHUB_URL = 'https://github.com/Forge402/forge402'
+
+// GitHub's official mark (Invertocat), path from GitHub's Octicons "mark-github".
+export const GitHubIcon = () => (
+  <svg viewBox="0 0 16 16" className="h-[18px] w-[18px]" fill="currentColor" aria-hidden>
+    <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z" />
+  </svg>
+)
+
+const linkCls =({ isActive }: { isActive: boolean }) =>
   `label rounded-full px-3 py-2 !text-body transition-colors hover:!text-ink ${isActive ? '!text-ink bg-ink/[0.06]' : ''}`
 
 export function SiteNav() {
@@ -53,6 +62,9 @@ export function SiteNav() {
         <a href="https://x.com/forge402" target="_blank" rel="noreferrer" aria-label="Forge402 on X" className="ml-1 hidden h-10 w-10 items-center justify-center rounded-full text-ink hover:bg-ink/[0.06] lg:flex">
           <XIcon />
         </a>
+        <a href={GITHUB_URL} target="_blank" rel="noreferrer" aria-label="Forge402 on GitHub" className="hidden h-10 w-10 items-center justify-center rounded-full text-ink hover:bg-ink/[0.06] lg:flex">
+          <GitHubIcon />
+        </a>
         <Link to="/dashboard" className="btn btn-primary !px-5 !py-2.5 !text-[12px]">Console →</Link>
         <button
           className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-ink hover:bg-ink/[0.06] lg:hidden"
@@ -74,6 +86,9 @@ export function SiteNav() {
             ))}
             <li>
               <a href="https://x.com/forge402" target="_blank" rel="noreferrer" className="label flex items-center gap-2 rounded-2xl px-4 py-3.5 text-[13px]"><XIcon /> on X</a>
+            </li>
+            <li>
+              <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="label flex items-center gap-2 rounded-2xl px-4 py-3.5 text-[13px]"><GitHubIcon /> on GitHub</a>
             </li>
           </ul>
         </nav>
