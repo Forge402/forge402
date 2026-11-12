@@ -1,0 +1,23 @@
+{
+  "name": "forge402-api",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Forge402 router API: OpenAI-compatible AI router on Cloudflare Workers AI, paid per token in USDG via x402.",
+  "scripts": {
+    "dev": "wrangler dev --port 8787 --local",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "deploy:check": "wrangler deploy --dry-run --outdir .wrangler/dry"
+  },
+  "dependencies": {
+    "viem": "^2.57.17"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261112.1",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0",
+    "wrangler": "^4.160.1"
+  }
+}

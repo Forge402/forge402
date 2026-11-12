@@ -1,0 +1,53 @@
+// Forge402 router API. Run wrangler from this folder (forge402/api).
+// Secrets, set by the owner (never in this file):
+//   npx wrangler secret put FACILITATOR_API_KEY   Priors facilitator merchant key (verifies and settles x402 payments)
+//   npx wrangler secret put SESSION_SECRET        long random string that signs wallet sign-in tokens
+//   npx wrangler secret put RPC_URL               Robinhood Chain RPC (used for the $FORGE holder balance read)
+// Without PAY_TO the paid routes answer 503 not_configured; without SESSION_SECRET wallet sign-in does.
+{
+  "name": "forge402-api",
+  "main": "./src/worker.ts",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  "routes": [{ "pattern": "api.forge402.pro", "custom_domain": true }],
+  "preview_urls": false,
+  "observability": { "enabled": true },
+
+  "vars": {
+    // Wallet that receives payments (public address). Must be the wallet registered as the facilitator merchant.
+    "PAY_TO": "0x759Cf0e19d45c1dCA28977703b69Fd93a3f6a136", // same wallet as Reinkeep (user choice 2026-11-12), registered Priors merchant
+    "FACILITATOR_URL": "https://facilitator.priors.trade",
+    // Comma list of site origins for CORS. "*" is fine for dev only.
+    "ALLOWED_ORIGINS": "https://forge402.pro,https://www.forge402.pro,https://forge402-site.reinkeep.workers.dev,http://localhost:4200",
+    // Holder discount: balance in the token's base units (integer string) and the percent off. Needs FORGE_TOKEN.
+    "HOLDER_MIN": "1000000000000000000000000",
+    "HOLDER_DISCOUNT_PCT": "20",
+    // $FORGE contract address. Empty until the token launches: no discount, no holder playground.
+    "FORGE_TOKEN": "",
+    // Priors facilitator fee per settled x402 payment (USDG). Added to every x402 charge; deducted from deposits.
+    "SETTLE_FEE_USD": "0.015",
+    // Refunds under this are not paid out one by one: they stay owed and add up per wallet until they reach it.
+    "REFUND_MIN_USD": "0.05",
+    // Workers AI neurons per UTC day this worker may spend (free + paid). The Free plan gives 10,000 per account.
+    // "0" = no cap (for a paid plan). Unset or invalid = 7500.
+    "AI_DAILY_NEURONS": "7500",
+    // Part of that budget the free playground may use. Unset or invalid = 2000.
+    "FREE_DAILY_NEURONS": "2000"
+  },
+
+  // Workers AI runs every model.
+  "ai": { "binding": "AI" },
+
+  // Keys, ledger, refunds, nonces. Create with: npx wrangler d1 create forge402, then paste the id below.
+  "d1_databases": [
+    { "binding": "DB", "database_name": "forge402", "database_id": "14635308-4dc8-401d-af92-ad14a6e99922", "migrations_dir": "migrations" }
+  ],
+
+  // Response cache and holder-balance cache. Create with: npx wrangler kv namespace create CACHE
+  "kv_namespaces": [{ "binding": "CACHE", "id": "cde9b82039564b78be8db5a965fb3d2d" }],
+
+  // Balance debits are one conditional UPDATE in D1 (see src/repo.ts), so no Durable Object is needed.
+  // Scan worker for the MCP scan tool. Enable once forge402/scan is deployed under this name; without it the tool
+  // answers not_configured.
+  "services": [{ "binding": "SCAN", "service": "forge402-scan" }]
+}

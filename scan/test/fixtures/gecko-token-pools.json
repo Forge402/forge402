@@ -1,0 +1,190 @@
+{
+ "data": [
+  {
+   "id": "robinhood_0x9501a20bedb8bea0798fe5d4c411f5e270965d49",
+   "type": "pool",
+   "attributes": {
+    "base_token_price_usd": "0.01454109733",
+    "base_token_price_native_currency": "0.00000709680091904336",
+    "quote_token_price_usd": "2053.29",
+    "quote_token_price_native_currency": "1.0",
+    "base_token_price_quote_token": "0.000007096800919",
+    "quote_token_price_base_token": "140908.560266447",
+    "address": "0x9501a20bedb8bea0798fe5d4c411f5e270965d49",
+    "name": "WALLET / WETH 1%",
+    "pool_created_at": "2026-07-10T01:02:04Z",
+    "token_price_usd": "0.01454109733",
+    "fdv_usd": "14541097.33",
+    "market_cap_usd": null,
+    "price_change_percentage": {
+     "m5": "0",
+     "m15": "0",
+     "m30": "-0.221",
+     "h1": "-0.28",
+     "h6": "-7.35",
+     "h24": "-6.62"
+    },
+    "transactions": {
+     "m5": {
+      "buys": 0,
+      "sells": 0,
+      "buyers": 0,
+      "sellers": 0
+     },
+     "m15": {
+      "buys": 0,
+      "sells": 0,
+      "buyers": 0,
+      "sellers": 0
+     },
+     "m30": {
+      "buys": 0,
+      "sells": 3,
+      "buyers": 0,
+      "sellers": 3
+     },
+     "h1": {
+      "buys": 0,
+      "sells": 5,
+      "buyers": 0,
+      "sellers": 5
+     },
+     "h6": {
+      "buys": 13,
+      "sells": 42,
+      "buyers": 12,
+      "sellers": 31
+     },
+     "h24": {
+      "buys": 216,
+      "sells": 273,
+      "buyers": 103,
+      "sellers": 154
+     }
+    },
+    "volume_usd": {
+     "m5": "0.0",
+     "m15": "0.0",
+     "m30": "1312.1156025442",
+     "h1": "1481.3164161389",
+     "h6": "18749.2707956381",
+     "h24": "131289.744760326"
+    },
+    "reserve_in_usd": "1605551.5902"
+   },
+   "relationships": {
+    "base_token": {
+     "data": {
+      "id": "robinhood_0x0339f5459fc690ac85f1782e15782a151b4a9e1b",
+      "type": "token"
+     }
+    },
+    "quote_token": {
+     "data": {
+      "id": "robinhood_0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+      "type": "token"
+     }
+    },
+    "dex": {
+     "data": {
+      "id": "uniswap-v3-robinhood",
+      "type": "dex"
+     }
+    }
+   }
+  },
+  {
+   "id": "robinhood_0x89f2e48df227a2cbd85f599b2dcfb6a6d21404b9b44a8a52b9abf01a1c9b3331",
+   "type": "pool",
+   "attributes": {
+    "base_token_price_usd": "0.01457639214",
+    "base_token_price_native_currency": "0.00000709828154915733",
+    "quote_token_price_usd": "1.00061755702234",
+    "quote_token_price_native_currency": "0.000487271820941872",
+    "base_token_price_quote_token": "0.01456739595",
+    "quote_token_price_base_token": "68.6464488014",
+    "address": "0x89f2e48df227a2cbd85f599b2dcfb6a6d21404b9b44a8a52b9abf01a1c9b3331",
+    "name": "WALLET / USDG 2.389%",
+    "pool_created_at": "2026-07-19T07:20:50Z",
+    "token_price_usd": "0.01457639214",
+    "fdv_usd": "14576392.14",
+    "market_cap_usd": null,
+    "price_change_percentage": {
+     "m5": "0",
+     "m15": "0",
+     "m30": "0",
+     "h1": "-0.48",
+     "h6": "-6.95",
+     "h24": "-9.67"
+    },
+    "transactions": {
+     "m5": {
+      "buys": 0,
+      "sells": 0,
+      "buyers": 0,
+      "sellers": 0
+     },
+     "m15": {
+      "buys": 0,
+      "sells": 0,
+      "buyers": 0,
+      "sellers": 0
+     },
+     "m30": {
+      "buys": 0,
+      "sells": 1,
+      "buyers": 0,
+      "sellers": 1
+     },
+     "h1": {
+      "buys": 0,
+      "sells": 3,
+      "buyers": 0,
+      "sellers": 3
+     },
+     "h6": {
+      "buys": 0,
+      "sells": 19,
+      "buyers": 0,
+      "sellers": 17
+     },
+     "h24": {
+      "buys": 33,
+      "sells": 42,
+      "buyers": 21,
+      "sellers": 31
+     }
+    },
+    "volume_usd": {
+     "m5": "0.0",
+     "m15": "0.0",
+     "m30": "178.7411006963",
+     "h1": "430.7731772433",
+     "h6": "3900.4460509533",
+     "h24": "10678.6503195417"
+    },
+    "reserve_in_usd": "29835.3772"
+   },
+   "relationships": {
+    "base_token": {
+     "data": {
+      "id": "robinhood_0x0339f5459fc690ac85f1782e15782a151b4a9e1b",
+      "type": "token"
+     }
+    },
+    "quote_token": {
+     "data": {
+      "id": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+      "type": "token"
+     }
+    },
+    "dex": {
+     "data": {
+      "id": "uniswap-v4-robinhood",
+      "type": "dex"
+     }
+    }
+   }
+  }
+ ]
+}

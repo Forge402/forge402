@@ -1,0 +1,35 @@
+// Forge402 scan worker. Live at https://scan.forge402.pro (deploys need the owner's OK).
+// Secrets (never put these in this file), set each with `npx wrangler secret put NAME`:
+//   RPC_URL                  the owner's Chainstack node URL, or a comma-separated list tried in order (the public node is always the last resort)
+//   COINGECKO_API_KEY        optional CoinGecko demo key; when set, pool data comes from api.coingecko.com first, DexScreener second
+//   TELEGRAM_BOT_TOKEN       from BotFather; without it the Telegram routes answer 503 not_configured
+//   TELEGRAM_WEBHOOK_SECRET  any long random string; Telegram sends it back in X-Telegram-Bot-Api-Secret-Token
+//   FACILITATOR_API_KEY      optional, only if the facilitator asks for one
+{
+  "name": "forge402-scan",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  "routes": [{ "pattern": "scan.forge402.pro", "custom_domain": true }],
+  "observability": { "enabled": true },
+  "ai": { "binding": "AI" },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "forge402-scan",
+      "database_id": "bea6a468-6cf4-4cbb-93a2-407d9a1f3cd6", // created 2026-11-12
+      "migrations_dir": "migrations"
+    }
+  ],
+  // hourly: Launch Radar + cleanup. Every 5 minutes: Forge Watch re-reads followed tokens.
+  "triggers": { "crons": ["0 * * * *", "*/5 * * * *"] },
+  "vars": {
+    "PAY_TO": "0x759Cf0e19d45c1dCA28977703b69Fd93a3f6a136", // same wallet as Reinkeep (user choice 2026-11-12), registered Priors merchant. Empty = paid scans answer 503 not_configured.
+    "SCAN_PRICE_USD": "0.02", // paid scan price in USD. Must be at least SETTLE_FEE_USD + 0.002 or paid scans answer 503 not_configured (no payment path may lose money).
+    "SETTLE_FEE_USD": "0.015", // Priors facilitator charges the merchant this much per settled payment (2026-11-12)
+    "SCAN_AI_DAILY_NEURONS": "1000", // Workers AI neurons/day this worker may spend (Free plan: 10,000 per account, shared). "0" = no cap. Over it, summaries are rule-written.
+    "COINGECKO_DAILY_CALLS": "300", // CoinGecko calls/day (Demo plan ~10,000/month). Radar and Watch get at most a third each; scans the rest. "0" = no cap.
+    "FACILITATOR_URL": "https://facilitator.priors.trade",
+    "ALLOWED_ORIGINS": "https://forge402.pro,https://www.forge402.pro,https://forge402-site.reinkeep.workers.dev,http://localhost:4200" // comma list of site origins; add the production site; "*" for dev only
+  }
+}

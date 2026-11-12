@@ -1,0 +1,30 @@
+node_modules/
+dist/
+studio/out/
+.wrangler/
+.DS_Store
+.env*
+.dev.vars*
+*.pem
+*.key
+*.p12
+secrets/
+.claude/
+*.log
+
+# rendered media (not source)
+*.mp4
+*.mov
+*.wav
+*.mp3
+*.webm
+**/scratch/
+
+# not source code: plans, docs, launch material, asset studio (kept on disk only)
+/PLAN.md
+/DESIGN.md
+/API.md
+/data/MODELS.md
+/launch-kit/
+/launch-film/
+/studio/

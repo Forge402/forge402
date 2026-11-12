@@ -1,0 +1,553 @@
+{
+  "source": [
+    "https://developers.cloudflare.com/workers-ai/platform/pricing/",
+    "https://developers.cloudflare.com/workers-ai/models/",
+    "https://prism402.com/v1/models"
+  ],
+  "checked": "2026-11-12",
+  "markup": 1.25,
+  "models": [
+    {
+      "id": "granite-4.0-micro",
+      "cfModel": "@cf/ibm-granite/granite-4.0-h-micro",
+      "provider": "IBM",
+      "type": "chat",
+      "description": "Smallest and cheapest tool-calling model, built for agent plumbing.",
+      "context": 131000,
+      "cfInPerM": 0.017,
+      "cfOutPerM": 0.112,
+      "inPerM": 0.021,
+      "outPerM": 0.14,
+      "tags": [
+        "tools"
+      ],
+      "free": false
+    },
+    {
+      "id": "llama-3.2-1b",
+      "cfModel": "@cf/meta/llama-3.2-1b-instruct",
+      "provider": "Meta",
+      "type": "chat",
+      "description": "Tiny Llama for cheap classification and short replies.",
+      "context": 60000,
+      "cfInPerM": 0.027,
+      "cfOutPerM": 0.201,
+      "inPerM": 0.034,
+      "outPerM": 0.251,
+      "tags": [],
+      "free": false,
+      "deprecates": "2026-11-20"
+    },
+    {
+      "id": "phonellm-mini-alpha-2",
+      "cfModel": "@cf/daily-co/phonellm-mini-alpha-2",
+      "provider": "Daily",
+      "type": "chat",
+      "description": "Alpha model tuned for voice and phone-style conversations.",
+      "context": 262140,
+      "cfInPerM": 0.06,
+      "cfOutPerM": 0.24,
+      "inPerM": 0.075,
+      "outPerM": 0.3,
+      "tags": [
+        "tools"
+      ],
+      "free": false
+    },
+    {
+      "id": "llama-3.1-8b",
+      "cfModel": "@cf/meta/llama-3.1-8b-instruct-fp8",
+      "provider": "Meta",
+      "type": "chat",
+      "description": "Llama 3.1 8B in fp8, a general small chat model.",
+      "context": 32000,
+      "cfInPerM": 0.152,
+      "cfOutPerM": 0.287,
+      "inPerM": 0.19,
+      "outPerM": 0.359,
+      "tags": [],
+      "free": false,
+      "deprecates": "2026-11-20"
+    },
+    {
+      "id": "gemma-4-26b",
+      "cfModel": "@cf/google/gemma-4-26b-a4b-it",
+      "provider": "Google",
+      "type": "chat",
+      "description": "Gemma 4 MoE that does images, reasoning and tools at a low price.",
+      "context": 256000,
+      "cfInPerM": 0.1,
+      "cfOutPerM": 0.3,
+      "inPerM": 0.125,
+      "outPerM": 0.375,
+      "tags": [
+        "reasoning",
+        "tools",
+        "vision"
+      ],
+      "free": false
+    },
+    {
+      "id": "gpt-oss-20b",
+      "cfModel": "@cf/openai/gpt-oss-20b",
+      "provider": "OpenAI",
+      "type": "chat",
+      "description": "OpenAI's small open-weight reasoning model, low latency.",
+      "context": 128000,
+      "cfInPerM": 0.2,
+      "cfOutPerM": 0.3,
+      "inPerM": 0.25,
+      "outPerM": 0.375,
+      "tags": [
+        "reasoning",
+        "tools"
+      ],
+      "free": false
+    },
+    {
+      "id": "llama-3.2-3b",
+      "cfModel": "@cf/meta/llama-3.2-3b-instruct",
+      "provider": "Meta",
+      "type": "chat",
+      "description": "Small Llama, good enough for light chat and extraction.",
+      "context": 80000,
+      "cfInPerM": 0.0509,
+      "cfOutPerM": 0.335,
+      "inPerM": 0.064,
+      "outPerM": 0.419,
+      "tags": [],
+      "free": false,
+      "deprecates": "2026-11-20"
+    },
+    {
+      "id": "qwen3-30b-a3b",
+      "cfModel": "@cf/qwen/qwen3-30b-a3b-fp8",
+      "provider": "Qwen",
+      "type": "chat",
+      "description": "Sparse Qwen3 MoE with a thinking mode and tool calls, cheap.",
+      "context": 32768,
+      "cfInPerM": 0.0509,
+      "cfOutPerM": 0.335,
+      "inPerM": 0.064,
+      "outPerM": 0.419,
+      "tags": [
+        "reasoning",
+        "tools"
+      ],
+      "free": false,
+      "deprecates": "2026-11-20"
+    },
+    {
+      "id": "glm-4.7-flash",
+      "cfModel": "@cf/zai-org/glm-4.7-flash",
+      "provider": "Z.ai",
+      "type": "chat",
+      "description": "Fast multilingual GLM for chat and instruction following.",
+      "context": 131072,
+      "cfInPerM": 0.0605,
+      "cfOutPerM": 0.4,
+      "inPerM": 0.076,
+      "outPerM": 0.5,
+      "tags": [
+        "reasoning",
+        "tools"
+      ],
+      "free": false
+    },
+    {
+      "id": "glm-5.3-flash",
+      "cfModel": "@cf/zai-org/glm-5.3-flash",
+      "paidPlan": true,
+      "provider": "Z.ai",
+      "type": "chat",
+      "description": "Cheap GLM 5.3 variant with 1M context, vision and tools.",
+      "context": 1048576,
+      "cfInPerM": 0.15,
+      "cfOutPerM": 0.5,
+      "inPerM": 0.188,
+      "outPerM": 0.625,
+      "tags": [
+        "reasoning",
+        "tools",
+        "vision"
+      ],
+      "free": false,
+      "deprecates": "2026-11-20"
+    },
+    {
+      "id": "mistral-small-3.1-24b",
+      "cfModel": "@cf/mistralai/mistral-small-3.1-24b-instruct",
+      "provider": "Mistral",
+      "type": "chat",
+      "description": "Mid-size Mistral with long context and tool calls; vision flag unconfirmed on CF page.",
+      "context": 128000,
+      "cfInPerM": 0.351,
+      "cfOutPerM": 0.555,
+      "inPerM": 0.439,
+      "outPerM": 0.694,
+      "tags": [
+        "tools",
+        "vision"
+      ],
+      "free": false
+    },
+    {
+      "id": "sea-lion-v4-27b",
+      "cfModel": "@cf/aisingapore/gemma-sea-lion-v4-27b-it",
+      "provider": "AI Singapore",
+      "type": "chat",
+      "description": "Gemma tuned for Southeast Asian languages.",
+      "context": 128000,
+      "cfInPerM": 0.351,
+      "cfOutPerM": 0.555,
+      "inPerM": 0.439,
+      "outPerM": 0.694,
+      "tags": [],
+      "free": false
+    },
+    {
+      "id": "llama-3.2-11b-vision",
+      "cfModel": "@cf/meta/llama-3.2-11b-vision-instruct",
+      "provider": "Meta",
+      "type": "chat",
+      "description": "Llama that reads images: captions, charts, visual Q&A.",
+      "context": 128000,
+      "cfInPerM": 0.0485,
+      "cfOutPerM": 0.676,
+      "inPerM": 0.061,
+      "outPerM": 0.845,
+      "tags": [
+        "vision"
+      ],
+      "free": false
+    },
+    {
+      "id": "gpt-oss-120b",
+      "cfModel": "@cf/openai/gpt-oss-120b",
+      "provider": "OpenAI",
+      "type": "chat",
+      "description": "OpenAI's large open-weight model for production reasoning and agents.",
+      "context": 128000,
+      "cfInPerM": 0.35,
+      "cfOutPerM": 0.75,
+      "inPerM": 0.438,
+      "outPerM": 0.938,
+      "tags": [
+        "reasoning",
+        "tools"
+      ],
+      "free": false
+    },
+    {
+      "id": "llama-4-scout-17b",
+      "cfModel": "@cf/meta/llama-4-scout-17b-16e-instruct",
+      "provider": "Meta",
+      "type": "chat",
+      "description": "Llama 4 MoE with image input and tool calling.",
+      "context": 131000,
+      "cfInPerM": 0.27,
+      "cfOutPerM": 0.85,
+      "inPerM": 0.338,
+      "outPerM": 1.063,
+      "tags": [
+        "tools",
+        "vision"
+      ],
+      "free": false
+    },
+    {
+      "id": "qwen2.5-coder-32b",
+      "cfModel": "@cf/qwen/qwen2.5-coder-32b-instruct",
+      "provider": "Qwen",
+      "type": "chat",
+      "description": "Qwen coder model for code generation and review.",
+      "context": 32768,
+      "cfInPerM": 0.66,
+      "cfOutPerM": 1.0,
+      "inPerM": 0.825,
+      "outPerM": 1.25,
+      "tags": [
+        "code"
+      ],
+      "free": false
+    },
+    {
+      "id": "qwq-32b",
+      "cfModel": "@cf/qwen/qwq-32b",
+      "provider": "Qwen",
+      "type": "chat",
+      "description": "Qwen's reasoning-first 32B model.",
+      "context": 24000,
+      "cfInPerM": 0.66,
+      "cfOutPerM": 1.0,
+      "inPerM": 0.825,
+      "outPerM": 1.25,
+      "tags": [
+        "reasoning"
+      ],
+      "free": false,
+      "deprecates": "2026-11-20"
+    },
+    {
+      "id": "deepseek-v4.1-flash",
+      "cfModel": "@cf/deepseek-ai/deepseek-v4.1-flash-1017",
+      "paidPlan": true,
+      "provider": "DeepSeek",
+      "type": "chat",
+      "description": "DeepSeek V4.1 Flash: 1M context, images, reasoning, tools.",
+      "context": 1048576,
+      "cfInPerM": 0.3,
+      "cfOutPerM": 1.2,
+      "inPerM": 0.375,
+      "outPerM": 1.5,
+      "tags": [
+        "reasoning",
+        "tools",
+        "vision"
+      ],
+      "free": false
+    },
+    {
+      "id": "deepseek-v4-flash",
+      "cfModel": "@cf/deepseek-ai/deepseek-v4-flash-0731",
+      "paidPlan": true,
+      "provider": "DeepSeek",
+      "type": "chat",
+      "description": "DeepSeek V4 Flash 0731, agent-focused with 1M context.",
+      "context": 1048576,
+      "cfInPerM": 0.44,
+      "cfOutPerM": 1.32,
+      "inPerM": 0.55,
+      "outPerM": 1.65,
+      "tags": [
+        "reasoning",
+        "tools"
+      ],
+      "free": false,
+      "deprecates": "2026-11-20"
+    },
+    {
+      "id": "nemotron-3-120b",
+      "cfModel": "@cf/nvidia/nemotron-3-120b-a12b",
+      "provider": "NVIDIA",
+      "type": "chat",
+      "description": "NVIDIA 120B MoE for reasoning and agent tasks.",
+      "context": 256000,
+      "cfInPerM": 0.5,
+      "cfOutPerM": 1.5,
+      "inPerM": 0.625,
+      "outPerM": 1.875,
+      "tags": [
+        "reasoning",
+        "tools"
+      ],
+      "free": false,
+      "deprecates": "2026-11-20"
+    },
+    {
+      "id": "llama-3.3-70b-instruct",
+      "cfModel": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+      "provider": "Meta",
+      "type": "chat",
+      "description": "Strong 70B general model; context capped at 24k here.",
+      "context": 24000,
+      "cfInPerM": 0.293,
+      "cfOutPerM": 2.253,
+      "inPerM": 0.366,
+      "outPerM": 2.816,
+      "tags": [
+        "tools"
+      ],
+      "free": false
+    },
+    {
+      "id": "qwen3.8-27b",
+      "cfModel": "@cf/qwen/qwen3.8-27b",
+      "provider": "Qwen",
+      "type": "chat",
+      "description": "Qwen 3.8 dense 27B with vision, reasoning and tools.",
+      "context": 262144,
+      "cfInPerM": 0.45,
+      "cfOutPerM": 3.2,
+      "inPerM": 0.563,
+      "outPerM": 4.0,
+      "tags": [
+        "reasoning",
+        "tools",
+        "vision"
+      ],
+      "free": false
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "cfModel": "@cf/deepseek-ai/deepseek-v4-pro-0813",
+      "paidPlan": true,
+      "provider": "DeepSeek",
+      "type": "chat",
+      "description": "DeepSeek V4 Pro, heavy reasoning for long multi-step agent work.",
+      "context": 1048576,
+      "cfInPerM": 1.32,
+      "cfOutPerM": 3.96,
+      "inPerM": 1.65,
+      "outPerM": 4.95,
+      "tags": [
+        "reasoning",
+        "tools"
+      ],
+      "free": false,
+      "deprecates": "2026-11-20"
+    },
+    {
+      "id": "kimi-k2.6",
+      "cfModel": "@cf/moonshotai/kimi-k2.6",
+      "paidPlan": true,
+      "provider": "Moonshot",
+      "type": "chat",
+      "description": "1T-parameter Kimi with vision and multi-turn tool use.",
+      "context": 262144,
+      "cfInPerM": 0.95,
+      "cfOutPerM": 4.0,
+      "inPerM": 1.188,
+      "outPerM": 5.0,
+      "tags": [
+        "reasoning",
+        "tools",
+        "vision"
+      ],
+      "free": false,
+      "deprecates": "2026-11-20"
+    },
+    {
+      "id": "kimi-k2.7-code",
+      "cfModel": "@cf/moonshotai/kimi-k2.7-code",
+      "paidPlan": true,
+      "provider": "Moonshot",
+      "type": "chat",
+      "description": "Kimi K2.7 aimed at coding agents.",
+      "context": 262144,
+      "cfInPerM": 0.95,
+      "cfOutPerM": 4.0,
+      "inPerM": 1.188,
+      "outPerM": 5.0,
+      "tags": [
+        "reasoning",
+        "tools",
+        "vision",
+        "code"
+      ],
+      "free": false,
+      "deprecates": "2026-11-20"
+    },
+    {
+      "id": "glm-5.2",
+      "cfModel": "@cf/zai-org/glm-5.2",
+      "paidPlan": true,
+      "provider": "Z.ai",
+      "type": "chat",
+      "description": "Previous flagship GLM, 262k context, reasoning and tools.",
+      "context": 262144,
+      "cfInPerM": 1.4,
+      "cfOutPerM": 4.4,
+      "inPerM": 1.75,
+      "outPerM": 5.5,
+      "tags": [
+        "reasoning",
+        "tools"
+      ],
+      "free": false,
+      "deprecates": "2026-11-20"
+    },
+    {
+      "id": "glm-5.3",
+      "cfModel": "@cf/zai-org/glm-5.3",
+      "paidPlan": true,
+      "provider": "Z.ai",
+      "type": "chat",
+      "description": "Z.ai's flagship agentic coding model with 1M context.",
+      "context": 1048576,
+      "cfInPerM": 1.4,
+      "cfOutPerM": 4.4,
+      "inPerM": 1.75,
+      "outPerM": 5.5,
+      "tags": [
+        "reasoning",
+        "tools",
+        "code"
+      ],
+      "free": false
+    },
+    {
+      "id": "deepseek-r1-distill-32b",
+      "cfModel": "@cf/deepseek-ai/deepseek-r1-distill-qwen-32b",
+      "provider": "DeepSeek",
+      "type": "chat",
+      "description": "R1 reasoning distilled into a Qwen 32B base.",
+      "context": 80000,
+      "cfInPerM": 0.497,
+      "cfOutPerM": 4.881,
+      "inPerM": 0.621,
+      "outPerM": 6.101,
+      "tags": [
+        "reasoning"
+      ],
+      "free": false,
+      "deprecates": "2026-11-20"
+    },
+    {
+      "id": "bge-m3",
+      "cfModel": "@cf/baai/bge-m3",
+      "provider": "BAAI",
+      "type": "embeddings",
+      "description": "Multilingual embeddings with long inputs.",
+      "context": 60000,
+      "cfInPerM": 0.0118,
+      "cfOutPerM": 0,
+      "inPerM": 0.015,
+      "outPerM": 0,
+      "tags": [],
+      "free": false
+    },
+    {
+      "id": "qwen3-embedding-0.6b",
+      "cfModel": "@cf/qwen/qwen3-embedding-0.6b",
+      "provider": "Qwen",
+      "type": "embeddings",
+      "description": "Small Qwen3 embedding model, 8k input.",
+      "context": 8192,
+      "cfInPerM": 0.0118,
+      "cfOutPerM": 0,
+      "inPerM": 0.015,
+      "outPerM": 0,
+      "tags": [],
+      "free": false
+    },
+    {
+      "id": "bge-base-en-v1.5",
+      "cfModel": "@cf/baai/bge-base-en-v1.5",
+      "provider": "BAAI",
+      "type": "embeddings",
+      "description": "English embeddings, 768 dimensions.",
+      "context": 512,
+      "cfInPerM": 0.067,
+      "cfOutPerM": 0,
+      "inPerM": 0.084,
+      "outPerM": 0,
+      "tags": [],
+      "free": false
+    },
+    {
+      "id": "bge-large-en-v1.5",
+      "cfModel": "@cf/baai/bge-large-en-v1.5",
+      "provider": "BAAI",
+      "type": "embeddings",
+      "description": "English embeddings, 1024 dimensions.",
+      "context": 512,
+      "cfInPerM": 0.204,
+      "cfOutPerM": 0,
+      "inPerM": 0.255,
+      "outPerM": 0,
+      "tags": [],
+      "free": false
+    }
+  ]
+}

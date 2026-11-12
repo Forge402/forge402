@@ -1,0 +1,23 @@
+{
+  "name": "forge402-scan",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --port 8788 --local",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "dryrun": "wrangler deploy --dry-run --outdir .dryrun",
+    "smoke": "node scripts/smoke.ts"
+  },
+  "dependencies": {
+    "viem": "^2.57.17"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261110.1",
+    "@types/node": "^22.0.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0",
+    "wrangler": "^4.160.1"
+  }
+}
